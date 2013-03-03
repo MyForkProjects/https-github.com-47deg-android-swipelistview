@@ -350,6 +350,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         if (swap) {
+                            closeOpenedItems();
                             performDismiss(view, position);
                         }
                     }
@@ -583,6 +584,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                     swiping = true;
                     boolean swipingRight = (deltaX > 0);
                     if (opened.get(downPosition)) {
+                        swipeListView.onStartClose(downPosition, swipingRight);
                         swipeCurrentAction = SwipeListView.SWIPE_ACTION_REVEAL;
                     } else {
                         if (swipingRight && swipeActionRight == SwipeListView.SWIPE_ACTION_DISMISS) {
@@ -596,6 +598,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                         } else {
                             swipeCurrentAction = SwipeListView.SWIPE_ACTION_REVEAL;
                         }
+                        swipeListView.onStartOpen(downPosition, swipeCurrentAction, swipingRight);
                     }
                     swipeListView.requestDisallowInterceptTouchEvent(true);
                     MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);

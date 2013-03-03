@@ -230,6 +230,29 @@ public class SwipeListView extends ListView {
     }
 
     /**
+     * Start open item
+     * @param position list item
+     * @param action current action
+     * @param right to right
+     */
+    protected void onStartOpen(int position, int action, boolean right) {
+        if (swipeListViewListener != null) {
+            swipeListViewListener.onStartOpen(position, action, right);
+        }
+    }
+
+    /**
+     * Start close item
+     * @param position list item
+     * @param right
+     */
+    protected void onStartClose(int position, boolean right) {
+        if (swipeListViewListener != null) {
+            swipeListViewListener.onStartClose(position, right);
+        }
+    }
+
+    /**
      * Notifies onClickFrontView
      *
      * @param position item clicked
