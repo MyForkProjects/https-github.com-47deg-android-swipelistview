@@ -1,4 +1,5 @@
-# android-swipelistview
+SwipeListView ([Play Store Demo][1])
+=============
 
 An Android List View implementation with support for drawable cells and many other swipe related features.
 
@@ -7,12 +8,14 @@ An Android List View implementation with support for drawable cells and many oth
   - [Maven Dependency](#maven-dependency)
 	- [APKLib and others](#apklib-and-others)
 	- [Dependencies](#dependencies)
+- [Demo](#demo)
 - [XML Usage](#xml-usage)
+- [License](#license)
 
 # Introduction
 
 SwipeListView was born out of the need to add swipe gestures to ListView on Android for 
-@ [47 Degrees](http://47deg.com) Clients. Contributions and constructive feedback are welcome.
+@ [47 Degrees][4] Clients. Contributions and constructive feedback are welcome.
 
 # Download
 
@@ -50,7 +53,7 @@ SwipeListView official releases will be made available at Maven Central.
 ## APKLib and others
 
 You can get the releases, snapshots and other forms in which SwipeListView is distributed from the
-[Downloads](https://github.com/47deg/android-swipelistview/downloads) page.
+[Downloads][5] page.
 
 ## Dependencies
 
@@ -58,11 +61,16 @@ SwipeListView depends on the following libraries.
 
 - com.nineoldandroids 
 
-SwipeListView expects that you include one of the Google Android [compatibility libraries](http://developer.android.com/intl/es/tools/extras/support-library.html) in order to use Loaders in versions that do not support them natively.
+SwipeListView expects that you include one of the Google Android [compatibility libraries][3] in order to use Loaders in versions that do not support them natively.
 Depending on your requirements you may choose to include one of the following...
 
 - com.google.android :
     - support-v4 (Available in Maven Central)
+
+# Demo
+
+You can see a demo for SwipeListView on [android-swipelistview-sample][2] or install from [Google Play][1]
+
 
 # XML Usage
 
@@ -98,3 +106,27 @@ If you decide to use SwipeListView as a view, you can define it in your xml layo
 * `swipeAnimationTime` - item drop animation time. Default: android configuration
 * `swipeOffsetLeft` - left offset
 * `swipeOffsetRight` - right offset
+
+# License
+
+Copyright (C) 2012 47 Degrees, LLC
+http://47deg.com
+hello@47deg.com
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+[1]: https://play.google.com/store/apps/details?id=com.fortysevendeg.android.swipelistview
+[2]: https://github.com/47deg/android-swipelistview-sample
+[3]: http://developer.android.com/intl/es/tools/extras/support-library.html
+[4]: http://47deg.com
+[5]: https://github.com/47deg/android-swipelistview/downloads
