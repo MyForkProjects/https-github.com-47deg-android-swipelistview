@@ -1,36 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Android-swipelistview : An Android List View implementation with support for drawable cells and many other swipe related features" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Android-swipelistview by 47deg</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Android-swipelistview</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/47deg/android-swipelistview">View on GitHub</a>
+      <header>
+        <h1>Android-swipelistview</h1>
+        <p>An Android List View implementation with support for drawable cells and many other swipe related features</p>
+      </header>
 
-          <h1 id="project_title">Android-swipelistview</h1>
-          <h2 id="project_tagline">An Android List View implementation with support for drawable cells and many other swipe related features</h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/47deg/android-swipelistview/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/47deg/android-swipelistview/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/47deg/android-swipelistview" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/47deg/android-swipelistview/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/47deg/android-swipelistview/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         <h1>SwipeListView (<a href="https://play.google.com/store/apps/details?id=com.fortysevendeg.android.swipelistview">Play Store Demo</a>)</h1>
 
 <p>An Android List View implementation with support for drawable cells and many other swipe related features.</p>
@@ -49,7 +57,7 @@
 <li><a href="#demo">Demo</a></li>
 <li><a href="#xml-usage">XML Usage</a></li>
 <li><a href="#license">License</a></li>
-</ul>
+</ul><p><a href="https://www.youtube.com/watch?v=E0352OH488M"><img src="https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_small.png" alt="SwipeListView screenshot"></a></p>
 
 <h1>Introduction</h1>
 
@@ -177,16 +185,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Android-swipelistview maintained by <a href="https://github.com/47deg">47deg</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/47deg">47deg</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -197,7 +201,6 @@ limitations under the License.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
