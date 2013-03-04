@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Android-swipelistview : An Android List View implementation with support for drawable cells and many other swipe related features" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Android-swipelistview</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/47deg/android-swipelistview">View on GitHub</a>
+
+          <h1 id="project_title">Android-swipelistview</h1>
+          <h2 id="project_tagline">An Android List View implementation with support for drawable cells and many other swipe related features</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/47deg/android-swipelistview/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/47deg/android-swipelistview/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>SwipeListView (<a href="https://play.google.com/store/apps/details?id=com.fortysevendeg.android.swipelistview">Play Store Demo</a>)</h1>
+
+<p>An Android List View implementation with support for drawable cells and many other swipe related features.</p>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li>
+<a href="#download">Download</a>
+
+<ul>
+<li><a href="#maven-dependency">Maven Dependency</a></li>
+<li><a href="#apklib-and-others">APKLib and others</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#xml-usage">XML Usage</a></li>
+<li><a href="#license">License</a></li>
+</ul><h1>Introduction</h1>
+
+<p>SwipeListView was born out of the need to add swipe gestures to ListView on Android for 
+@ <a href="http://47deg.com">47 Degrees</a> Clients. Contributions and constructive feedback are welcome.</p>
+
+<h1>Download</h1>
+
+<h2>Maven Dependency</h2>
+
+<p>SwipeListView may be automatically imported into your project if you already use <a href="http://maven.apache.org/">Maven</a>. 
+Just declare android-swipelistview as a maven dependency.
+If you wish to always use the latest unstable snapshots, add the Sonatype repository where the SwipeListView 
+snapshot artifacts are being deployed.
+SwipeListView official releases will be made available at Maven Central.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>sonatype<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;releases&gt;</span>
+        <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;updatePolicy&gt;</span>daily<span class="nt">&lt;/updatePolicy&gt;</span>
+        <span class="nt">&lt;checksumPolicy&gt;</span>fail<span class="nt">&lt;/checksumPolicy&gt;</span>
+    <span class="nt">&lt;/releases&gt;</span>
+    <span class="nt">&lt;snapshots&gt;</span>
+        <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;updatePolicy&gt;</span>always<span class="nt">&lt;/updatePolicy&gt;</span>
+        <span class="nt">&lt;checksumPolicy&gt;</span>ignore<span class="nt">&lt;/checksumPolicy&gt;</span>
+    <span class="nt">&lt;/snapshots&gt;</span>
+<span class="nt">&lt;/repository&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.fortysevendeg.android<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>swipelistview<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;type&gt;</span>apklib<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h2>APKLib and others</h2>
+
+<p>You can get the releases, snapshots and other forms in which SwipeListView is distributed from the
+<a href="https://github.com/47deg/android-swipelistview/downloads">Downloads</a> page.</p>
+
+<h2>Dependencies</h2>
+
+<p>SwipeListView depends on the following libraries.</p>
+
+<ul>
+<li>com.nineoldandroids </li>
+</ul><p>SwipeListView expects that you include one of the Google Android <a href="http://developer.android.com/intl/es/tools/extras/support-library.html">compatibility libraries</a> in order to use Loaders in versions that do not support them natively.
+Depending on your requirements you may choose to include one of the following...</p>
+
+<ul>
+<li>com.google.android :
+
+<ul>
+<li>support-v4 (Available in Maven Central)</li>
+</ul>
+</li>
+</ul><h1>Demo</h1>
+
+<p>You can see a demo SwipeListView in action at <a href="https://github.com/47deg/android-swipelistview-sample">android-swipelistview-sample</a> or install it from <a href="https://play.google.com/store/apps/details?id=com.fortysevendeg.android.swipelistview">Google Play</a></p>
+
+<h1>XML Usage</h1>
+
+<p>If you decide to use SwipeListView as a view, you can define it in your xml layout like this:</p>
+
+<div class="highlight"><pre>    <span class="nt">&lt;com.fortysevendeg.android.swipelistview.SwipeListView</span>
+            <span class="na">xmlns:swipe=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+            <span class="na">android:id=</span><span class="s">"@+id/example_lv_list"</span>
+            <span class="na">android:listSelector=</span><span class="s">"#00000000"</span>
+            <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+            <span class="na">swipe:swipeFrontView=</span><span class="s">"@+id/front"</span>
+            <span class="na">swipe:swipeBackView=</span><span class="s">"@+id/back"</span>
+            <span class="na">swipe:swipeActionLeft=</span><span class="s">"[reveal | dismiss]"</span>
+            <span class="na">swipe:swipeActionRight=</span><span class="s">"[reveal | dismiss]"</span>
+            <span class="na">swipe:swipeMode=</span><span class="s">"[none | both | right | left]"</span>
+            <span class="na">swipe:swipeCloseAllItemsWhenMoveList=</span><span class="s">"[true | false]"</span>
+            <span class="na">swipe:swipeOpenOnLongPress=</span><span class="s">"[true | false]"</span>
+            <span class="na">swipe:swipeAnimationTime=</span><span class="s">"[miliseconds]"</span>
+            <span class="na">swipe:swipeOffsetLeft=</span><span class="s">"[dimension]"</span>
+            <span class="na">swipe:swipeOffsetRight=</span><span class="s">"[dimension]"</span>
+            <span class="nt">/&gt;</span>
+</pre></div>
+
+<ul>
+<li>
+<code>swipeFrontView</code> - <strong>Required</strong> - front view id.</li>
+<li>
+<code>swipeBackView</code> - <strong>Required</strong> - back view id.</li>
+<li>
+<code>swipeActionLeft</code> - Optional - left swipe action Default: 'reveal'</li>
+<li>
+<code>swipeActionRight</code> - Optional - right swipe action Default: 'reveal'</li>
+<li>
+<code>swipeMode</code> - Gestures to enable or 'none'. Default: 'both'</li>
+<li>
+<code>swipeCloseAllItemsWhenMoveList</code> - Close revealed items on list motion. Default: 'true'</li>
+<li>
+<code>swipeOpenOnLongPress</code> - Reveal on long press Default: 'true'</li>
+<li>
+<code>swipeAnimationTime</code> - item drop animation time. Default: android configuration</li>
+<li>
+<code>swipeOffsetLeft</code> - left offset</li>
+<li>
+<code>swipeOffsetRight</code> - right offset</li>
+</ul><h1>License</h1>
+
+<p>Copyright (C) 2012 47 Degrees, LLC
+<a href="http://47deg.com">http://47deg.com</a>
+<a href="mailto:hello@47deg.com">hello@47deg.com</a></p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code> http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Android-swipelistview maintained by <a href="https://github.com/47deg">47deg</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
