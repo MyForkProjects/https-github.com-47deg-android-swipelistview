@@ -11,6 +11,8 @@ An Android List View implementation with support for drawable cells and many oth
 - [Demo](#demo)
 - [XML Usage](#xml-usage)
 - [License](#license)
+ 
+[![SwipeListView screenshot][6]][7]
 
 # Introduction
 
@@ -130,3 +132,5 @@ limitations under the License.
 [3]: http://developer.android.com/intl/es/tools/extras/support-library.html
 [4]: http://47deg.com
 [5]: https://github.com/47deg/android-swipelistview/downloads
+[6]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_small.png
+[7]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_large.png
