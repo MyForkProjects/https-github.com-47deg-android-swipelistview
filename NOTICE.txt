@@ -1,5 +1,2 @@
-   Apache HTTP Server
-   Copyright 1999-2006 The Apache Software Foundation
-
-   This product includes software developed at
-   Roman Nurik (https://gist.github.com/romannurik/2980593)
+   This software contains code derived from Roman Nurik (https://gist.github.com/romannurik/2980593), 
+   including various modifications by 47 Degrees LLC.
