@@ -12,6 +12,7 @@ An Android List View implementation with support for drawable cells and many oth
 - [XML Usage](#xml-usage)
 - [License](#license)
  
+Click to watch video
 [![SwipeListView screenshot][6]][7]
 
 # Introduction
