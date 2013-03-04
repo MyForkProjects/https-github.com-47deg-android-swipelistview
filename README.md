@@ -69,7 +69,7 @@ Depending on your requirements you may choose to include one of the following...
 
 # Demo
 
-You can see a demo for SwipeListView on [android-swipelistview-sample][2] or install from [Google Play][1]
+You can see a demo SwipeListView in action at [android-swipelistview-sample][2] or install it from [Google Play][1]
 
 
 # XML Usage
