@@ -133,4 +133,4 @@ limitations under the License.
 [4]: http://47deg.com
 [5]: https://github.com/47deg/android-swipelistview/downloads
 [6]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_small.png
-[7]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_large.png
+[7]: https://www.youtube.com/watch?v=E0352OH488M
