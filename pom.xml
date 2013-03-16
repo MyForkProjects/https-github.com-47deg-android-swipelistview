@@ -33,7 +33,6 @@
         <platform.version>4.1.1.4</platform.version>
         <project.name.github>android-swipelistview</project.name.github>
         <scm.branch>master</scm.branch>
-        <android.sdk.path>/Applications/android-sdk-macosx</android.sdk.path>
         <github.global.server>github</github.global.server>
     </properties>
 
