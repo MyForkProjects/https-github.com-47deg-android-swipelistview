@@ -563,6 +563,13 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
                 float deltaX = motionEvent.getRawX() - downX;
                 float deltaMode = Math.abs(deltaX);
+
+                int swipeMode = this.swipeMode;
+                int changeSwipeMode = swipeListView.changeSwipeMode(downPosition);
+                if (changeSwipeMode >= 0) {
+                    swipeMode = changeSwipeMode;
+                }
+
                 if (swipeMode == SwipeListView.SWIPE_MODE_NONE) {
                     deltaMode = 0;
                 } else if (swipeMode != SwipeListView.SWIPE_MODE_BOTH) {

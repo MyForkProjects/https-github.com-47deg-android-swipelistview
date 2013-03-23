@@ -35,6 +35,11 @@ import android.widget.ListView;
 public class SwipeListView extends ListView {
 
     /**
+     * Used when user want change swipe list mode on some rows
+     */
+    public final static int SWIPE_MODE_DEFAULT = -1;
+
+    /**
      * Disables all swipes
      */
     public final static int SWIPE_MODE_NONE = 0;
@@ -95,10 +100,13 @@ public class SwipeListView extends ListView {
     private float lastMotionY;
     private int touchSlop;
 
+    int swipeFrontView = 0;
+    int swipeBackView = 0;
+
     /**
      * Internal listener for common swipe events
      */
-    private SwipeListViewListener swipeListViewListener;
+    private BaseSwipeListViewListener swipeListViewListener;
 
     /**
      * Internal touch listener
@@ -106,10 +114,15 @@ public class SwipeListView extends ListView {
     private SwipeListViewTouchListener touchListener;
 
     /**
-     * @see ListView#ListView(android.content.Context)
+     * If you create a View programmatically you need send back and front identifier
+     * @param context Context
+     * @param swipeBackView Back Identifier
+     * @param swipeFrontView Front Identifier
      */
-    public SwipeListView(Context context) {
+    public SwipeListView(Context context, int swipeBackView, int swipeFrontView) {
         super(context);
+        this.swipeFrontView = swipeFrontView;
+        this.swipeBackView = swipeBackView;
         init(null);
     }
 
@@ -139,8 +152,6 @@ public class SwipeListView extends ListView {
         int swipeMode = SWIPE_MODE_BOTH;
         boolean swipeOpenOnLongPress = true;
         boolean swipeCloseAllItemsWhenMoveList = true;
-        int swipeFrontView = 0;
-        int swipeBackView = 0;
         long swipeAnimationTime = 0;
         float swipeOffsetLeft = 0;
         float swipeOffsetRight = 0;
@@ -319,12 +330,19 @@ public class SwipeListView extends ListView {
         }
     }
 
+    protected int changeSwipeMode(int position) {
+        if (swipeListViewListener != null) {
+            return swipeListViewListener.onChangeSwipeMode(position);
+        }
+        return SWIPE_MODE_DEFAULT;
+    }
+
     /**
      * Sets the Listener
      *
      * @param swipeListViewListener Listener
      */
-    public void setSwipeListViewListener(SwipeListViewListener swipeListViewListener) {
+    public void setSwipeListViewListener(BaseSwipeListViewListener swipeListViewListener) {
         this.swipeListViewListener = swipeListViewListener;
     }
 
