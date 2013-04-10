@@ -80,6 +80,16 @@ public class SwipeListView extends ListView {
     public final static int SWIPE_ACTION_NONE = 3;
 
     /**
+     * Default ids for front view
+     */
+    public final static String SWIPE_DEFAULT_FRONT_VIEW = "swipelist_frontview";
+
+    /**
+     * Default id for back view
+     */
+    public final static String SWIPE_DEFAULT_BACK_VIEW = "swipelist_backview";
+
+    /**
      * Indicates no movement
      */
     private final static int TOUCH_STATE_REST = 0;
@@ -127,7 +137,7 @@ public class SwipeListView extends ListView {
     }
 
     /**
-     * @see ListView#ListView(android.content.Context, android.util.AttributeSet)
+     * @see android.widget.ListView#ListView(android.content.Context, android.util.AttributeSet)
      */
     public SwipeListView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -135,7 +145,7 @@ public class SwipeListView extends ListView {
     }
 
     /**
-     * @see ListView#ListView(android.content.Context, android.util.AttributeSet, int)
+     * @see android.widget.ListView#ListView(android.content.Context, android.util.AttributeSet, int)
      */
     public SwipeListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -174,7 +184,12 @@ public class SwipeListView extends ListView {
         }
 
         if (swipeFrontView == 0 || swipeBackView == 0) {
-            throw new RuntimeException("Missed attribute swipeFrontView or swipeBackView");
+            swipeFrontView = getContext().getResources().getIdentifier(SWIPE_DEFAULT_FRONT_VIEW, "id", getContext().getPackageName());
+            swipeBackView =  getContext().getResources().getIdentifier(SWIPE_DEFAULT_BACK_VIEW, "id", getContext().getPackageName());
+
+            if (swipeFrontView == 0 || swipeBackView == 0) {
+                throw new RuntimeException("Missed attribute swipeFrontView or swipeBackView");
+            }
         }
 
         final ViewConfiguration configuration = ViewConfiguration.get(getContext());
@@ -195,7 +210,7 @@ public class SwipeListView extends ListView {
     }
 
     /**
-     * @see ListView#setAdapter(android.widget.ListAdapter)
+     * @see android.widget.ListView#setAdapter(android.widget.ListAdapter)
      */
     @Override
     public void setAdapter(ListAdapter adapter) {
@@ -444,7 +459,7 @@ public class SwipeListView extends ListView {
     }
 
     /**
-     * @see ListView#onInterceptTouchEvent(android.view.MotionEvent)
+     * @see android.widget.ListView#onInterceptTouchEvent(android.view.MotionEvent)
      */
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
