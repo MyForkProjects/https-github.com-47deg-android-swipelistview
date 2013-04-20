@@ -442,7 +442,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
     /**
      * Close all opened items
      */
-    private void closeOpenedItems() {
+    void closeOpenedItems() {
         if (opened != null) {
             int start = swipeListView.getFirstVisiblePosition();
             int end = swipeListView.getLastVisiblePosition();

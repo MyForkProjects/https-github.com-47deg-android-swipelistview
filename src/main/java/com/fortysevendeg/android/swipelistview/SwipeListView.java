@@ -520,5 +520,12 @@ public class SwipeListView extends ListView {
             lastMotionY = y;
         }
     }
+    
+    /**
+     * Close all opened items
+     */
+    public void closeOpenedItems() {
+        touchListener.closeOpenedItems();
+    }
 
 }
