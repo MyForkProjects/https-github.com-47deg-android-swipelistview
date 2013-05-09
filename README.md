@@ -8,6 +8,7 @@ An Android List View implementation with support for drawable cells and many oth
   - [Maven Dependency](#maven-dependency)
 	- [APKLib and others](#apklib-and-others)
 	- [Dependencies](#dependencies)
+- [Using the standalone SwipeListView JAR](#using-the-standalone-swipelistview-jar)
 - [Demo](#demo)
 - [XML Usage](#xml-usage)
 - [License](#license)
@@ -70,6 +71,17 @@ Depending on your requirements you may choose to include one of the following...
 
 - com.google.android :
     - support-v4 (Available in Maven Central)
+
+# Using the standalone SwipeListView JAR
+
+If you manually include the single SwipeListView jar [swipelistview-1.0-SNAPSHOT.jar][5] in your libs/ folder you would also have to add the following dependencies:
+
+- [nineoldandroids-2.4.0.jar][8]
+- android-support-v4
+
+You'd have to provide also the [attrs.xml][9] inside your directory "res/values" so the attributes are properly picked up by the runtime.
+
+We do discourage people from manually adding the jars and recomend following the maven or apklib aproach to include SwipeListView library in your own project.
 
 # Demo
 
@@ -136,3 +148,5 @@ limitations under the License.
 [5]: https://github.com/47deg/android-swipelistview/downloads
 [6]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_small.png
 [7]: https://www.youtube.com/watch?v=E0352OH488M
+[8]: https://github.com/JakeWharton/NineOldAndroids/downloads
+[9]: https://github.com/47deg/android-swipelistview/tree/master/res/values
