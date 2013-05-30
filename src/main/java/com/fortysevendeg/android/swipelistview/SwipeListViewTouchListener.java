@@ -214,6 +214,15 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
         this.swipeMode = swipeMode;
     }
 
+	/**
+	 * Check is swiping is enabled
+	 *
+	 * @return
+	 */
+	protected boolean isSwipeEnabled() {
+		return swipeMode != SwipeListView.SWIPE_MODE_NONE;
+	}
+
     /**
      * Return action on left
      *
@@ -460,6 +469,10 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      */
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+		if(!isSwipeEnabled()) {
+			return false;
+		}
+
         if (viewWidth < 2) {
             viewWidth = swipeListView.getWidth();
         }
@@ -480,11 +493,18 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                 for (int i = 0; i < childCount; i++) {
                     child = swipeListView.getChildAt(i);
                     child.getHitRect(rect);
-                    if (rect.contains(x, y) && swipeListView.getAdapter().isEnabled(swipeListView.getFirstVisiblePosition() + i)) {
+
+					int childPosition = swipeListView.getPositionForView(child);
+
+					// dont allow swiping if this is on the header or footer or IGNORE_ITEM_VIEW_TYPE or enabled is false on the adapter
+					boolean allowSwipe = swipeListView.getAdapter().isEnabled(childPosition) && swipeListView.getAdapter().getItemViewType(childPosition) >= 0;
+
+					if (allowSwipe && rect.contains(x, y)) {
                         setParentView(child);
                         setFrontView(child.findViewById(swipeFrontView));
-                        downX = motionEvent.getRawX();
-                        downPosition = swipeListView.getPositionForView(child);
+
+						downX = motionEvent.getRawX();
+                        downPosition = childPosition;
 
                         frontView.setClickable(!opened.get(downPosition));
                         frontView.setLongClickable(!opened.get(downPosition));
@@ -643,7 +663,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
         }
     }
 
-    /**
+	/**
      * Class that saves pending dismiss data
      */
     class PendingDismissData implements Comparable<PendingDismissData> {

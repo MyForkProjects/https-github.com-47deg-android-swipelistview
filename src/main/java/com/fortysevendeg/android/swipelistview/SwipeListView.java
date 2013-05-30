@@ -116,14 +116,15 @@ public class SwipeListView extends ListView {
     /**
      * Internal listener for common swipe events
      */
-    private BaseSwipeListViewListener swipeListViewListener;
+    private SwipeListViewListener swipeListViewListener;
 
     /**
      * Internal touch listener
      */
     private SwipeListViewTouchListener touchListener;
 
-    /**
+
+	/**
      * If you create a View programmatically you need send back and front identifier
      * @param context Context
      * @param swipeBackView Back Identifier
@@ -357,7 +358,7 @@ public class SwipeListView extends ListView {
      *
      * @param swipeListViewListener Listener
      */
-    public void setSwipeListViewListener(BaseSwipeListViewListener swipeListViewListener) {
+    public void setSwipeListViewListener(SwipeListViewListener swipeListViewListener) {
         this.swipeListViewListener = swipeListViewListener;
     }
 
@@ -410,7 +411,7 @@ public class SwipeListView extends ListView {
      * @param swipeMode
      */
     public void setSwipeMode(int swipeMode) {
-        touchListener.setSwipeMode(swipeMode);
+		touchListener.setSwipeMode(swipeMode);
     }
 
     /**
@@ -467,29 +468,32 @@ public class SwipeListView extends ListView {
         final float x = ev.getX();
         final float y = ev.getY();
 
-        if (touchState == TOUCH_STATE_SCROLLING_X) {
-            return touchListener.onTouch(this, ev);
-        }
+		if(isEnabled() && touchListener.isSwipeEnabled()) {
 
-        switch (action) {
-            case MotionEvent.ACTION_MOVE:
-                checkInMoving(x, y);
-                return touchState == TOUCH_STATE_SCROLLING_Y;
-            case MotionEvent.ACTION_DOWN:
-                touchListener.onTouch(this, ev);
-                touchState = TOUCH_STATE_REST;
-                lastMotionX = x;
-                lastMotionY = y;
-                return false;
-            case MotionEvent.ACTION_CANCEL:
-                touchState = TOUCH_STATE_REST;
-                break;
-            case MotionEvent.ACTION_UP:
-                touchListener.onTouch(this, ev);
-                return touchState == TOUCH_STATE_SCROLLING_Y;
-            default:
-                break;
-        }
+			if (touchState == TOUCH_STATE_SCROLLING_X) {
+				return touchListener.onTouch(this, ev);
+			}
+
+			switch (action) {
+				case MotionEvent.ACTION_MOVE:
+					checkInMoving(x, y);
+					return touchState == TOUCH_STATE_SCROLLING_Y;
+				case MotionEvent.ACTION_DOWN:
+					touchListener.onTouch(this, ev);
+					touchState = TOUCH_STATE_REST;
+					lastMotionX = x;
+					lastMotionY = y;
+					return false;
+				case MotionEvent.ACTION_CANCEL:
+					touchState = TOUCH_STATE_REST;
+					break;
+				case MotionEvent.ACTION_UP:
+					touchListener.onTouch(this, ev);
+					return touchState == TOUCH_STATE_SCROLLING_Y;
+				default:
+					break;
+			}
+		}
 
         return super.onInterceptTouchEvent(ev);
     }
