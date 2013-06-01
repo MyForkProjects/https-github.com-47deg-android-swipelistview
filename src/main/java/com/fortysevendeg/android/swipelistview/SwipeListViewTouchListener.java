@@ -433,6 +433,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                 }
                 if (scrollState != AbsListView.OnScrollListener.SCROLL_STATE_FLING && scrollState != SCROLL_STATE_TOUCH_SCROLL) {
                     listViewMoving = false;
+                    downPosition = ListView.INVALID_POSITION;
                     swipeListView.resetScrolling();
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
@@ -572,7 +573,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             }
 
             case MotionEvent.ACTION_MOVE: {
-                if (velocityTracker == null || paused) {
+                if (velocityTracker == null || paused || downPosition == ListView.INVALID_POSITION) {
                     break;
                 }
 
