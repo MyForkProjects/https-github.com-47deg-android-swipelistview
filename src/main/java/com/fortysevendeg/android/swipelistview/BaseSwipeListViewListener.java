@@ -41,4 +41,24 @@ public class BaseSwipeListViewListener implements SwipeListViewListener {
     public int onChangeSwipeMode(int position) {
         return SwipeListView.SWIPE_MODE_DEFAULT;
     }
+
+    @Override
+    public void onChangeChoice(int position, boolean selected) {
+    }
+
+    @Override
+    public void onStartChoice() {
+    }
+
+    @Override
+    public void onEndChoice() {
+    }
+
+    @Override
+    public void onFirstItemList() {
+    }
+
+    @Override
+    public void onLastItemList() {
+    }
 }

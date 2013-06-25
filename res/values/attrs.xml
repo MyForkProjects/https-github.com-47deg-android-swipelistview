@@ -35,11 +35,15 @@
         <attr name="swipeActionLeft" format="enum">
             <enum name="reveal" value="0"/>
             <enum name="dismiss" value="1"/>
+            <enum name="choice" value="2"/>
         </attr>
         <attr name="swipeActionRight" format="enum">
             <enum name="reveal" value="0"/>
             <enum name="dismiss" value="1"/>
+            <enum name="choice" value="2"/>
         </attr>
+        <attr name="swipeDrawableChecked" format="reference"/>
+        <attr name="swipeDrawableUnchecked" format="reference"/>
     </declare-styleable>
 
 </resources>
