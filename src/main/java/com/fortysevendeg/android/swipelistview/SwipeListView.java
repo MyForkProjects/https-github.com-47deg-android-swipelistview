@@ -359,7 +359,7 @@ public class SwipeListView extends ListView {
      * @param right    to right
      */
     protected void onStartOpen(int position, int action, boolean right) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onStartOpen(position, action, right);
         }
     }
@@ -371,7 +371,7 @@ public class SwipeListView extends ListView {
      * @param right
      */
     protected void onStartClose(int position, boolean right) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onStartClose(position, right);
         }
     }
@@ -382,7 +382,7 @@ public class SwipeListView extends ListView {
      * @param position item clicked
      */
     protected void onClickFrontView(int position) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onClickFrontView(position);
         }
     }
@@ -393,7 +393,7 @@ public class SwipeListView extends ListView {
      * @param position back item clicked
      */
     protected void onClickBackView(int position) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onClickBackView(position);
         }
     }
@@ -405,7 +405,7 @@ public class SwipeListView extends ListView {
      * @param toRight  If should be opened toward the right
      */
     protected void onOpened(int position, boolean toRight) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onOpened(position, toRight);
         }
     }
@@ -417,7 +417,7 @@ public class SwipeListView extends ListView {
      * @param fromRight If open from right
      */
     protected void onClosed(int position, boolean fromRight) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onClosed(position, fromRight);
         }
     }
@@ -429,7 +429,7 @@ public class SwipeListView extends ListView {
      * @param selected if item is selected or not
      */
     protected void onChangeChoice(int position, boolean selected) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onChangeChoice(position, selected);
         }
     }
@@ -486,13 +486,13 @@ public class SwipeListView extends ListView {
      * @param x        Current position
      */
     protected void onMove(int position, float x) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onMove(position, x);
         }
     }
 
     protected int changeSwipeMode(int position) {
-        if (swipeListViewListener != null) {
+        if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             return swipeListViewListener.onChangeSwipeMode(position);
         }
         return SWIPE_MODE_DEFAULT;

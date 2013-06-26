@@ -400,7 +400,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      * @return
      */
     protected boolean isChecked(int position) {
-        return checked.get(position);
+        return position < checked.size() && checked.get(position);
     }
 
     /**
@@ -609,6 +609,10 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      */
     public AbsListView.OnScrollListener makeScrollListener() {
         return new AbsListView.OnScrollListener() {
+
+            private boolean isFirstItem = false;
+            private boolean isLastItem = false;
+
             @Override
             public void onScrollStateChanged(AbsListView absListView, int scrollState) {
                 setEnabled(scrollState != AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL);
@@ -633,13 +637,29 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                boolean onFirstItemList = firstVisibleItem == 0;
-                boolean onLastItemList = firstVisibleItem + visibleItemCount >= totalItemCount;
-                if (onFirstItemList) {
-                    swipeListView.onFirstItemList();
+                if (isFirstItem) {
+                    boolean onSecondItemList = firstVisibleItem == 1;
+                    if (onSecondItemList) {
+                        isFirstItem = false;
+                    }
+                } else {
+                    boolean onFirstItemList = firstVisibleItem == 0;
+                    if (onFirstItemList) {
+                        isFirstItem = true;
+                        swipeListView.onFirstItemList();
+                    }
                 }
-                if (onLastItemList) {
-                    swipeListView.onLastItemList();
+                if (isLastItem) {
+                    boolean onBeforeLastItemList = firstVisibleItem + visibleItemCount == totalItemCount - 1;
+                    if (onBeforeLastItemList) {
+                        isLastItem = false;
+                    }
+                } else {
+                    boolean onLastItemList = firstVisibleItem + visibleItemCount >= totalItemCount;
+                    if (onLastItemList) {
+                        isLastItem = true;
+                        swipeListView.onLastItemList();
+                    }
                 }
             }
         };
