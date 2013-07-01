@@ -320,6 +320,7 @@ public class SwipeListView extends ListView {
             onDismiss(dismissPositions);
             touchListener.resetPendingDismisses();
         }
+        touchListener.returnOldActions();
     }
 
     /**
