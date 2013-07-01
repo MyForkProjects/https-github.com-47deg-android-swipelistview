@@ -429,7 +429,7 @@ public class SwipeListView extends ListView {
      * @param position position that choice
      * @param selected if item is selected or not
      */
-    protected void onChangeChoice(int position, boolean selected) {
+    protected void onChoiceChanged(int position, boolean selected) {
         if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
             swipeListViewListener.onChoiceChanged(position, selected);
         }
@@ -438,7 +438,7 @@ public class SwipeListView extends ListView {
     /**
      * User start choice items
      */
-    protected void onStartChoice() {
+    protected void onChoiceStarted() {
         if (swipeListViewListener != null) {
             swipeListViewListener.onChoiceStarted();
         }
@@ -447,7 +447,7 @@ public class SwipeListView extends ListView {
     /**
      * User end choice items
      */
-    protected void onEndChoice() {
+    protected void onChoiceEnded() {
         if (swipeListViewListener != null) {
             swipeListViewListener.onChoiceEnded();
         }
@@ -456,7 +456,7 @@ public class SwipeListView extends ListView {
     /**
      * User is in first item of list
      */
-    protected void onFirstItemList() {
+    protected void onFirstListItem() {
         if (swipeListViewListener != null) {
             swipeListViewListener.onFirstListItem();
         }
@@ -465,7 +465,7 @@ public class SwipeListView extends ListView {
     /**
      * User is in last item of list
      */
-    protected void onLastItemList() {
+    protected void onLastListItem() {
         if (swipeListViewListener != null) {
             swipeListViewListener.onLastListItem();
         }

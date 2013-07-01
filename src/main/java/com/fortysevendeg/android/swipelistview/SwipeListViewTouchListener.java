@@ -337,18 +337,18 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
         checked.set(position, !lastChecked);
         int count = lastChecked ? lastCount - 1 : lastCount + 1;
         if (lastCount == 0 && count == 1) {
-            swipeListView.onStartChoice();
+            swipeListView.onChoiceStarted();
             closeOpenedItems();
             setActionsTo(SwipeListView.SWIPE_ACTION_CHOICE);
         }
         if (lastCount == 1 && count == 0) {
-            swipeListView.onEndChoice();
+            swipeListView.onChoiceEnded();
             returnOldActions();
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             swipeListView.setItemChecked(position, !lastChecked);
         }
-        swipeListView.onChangeChoice(position, !lastChecked);
+        swipeListView.onChoiceChanged(position, !lastChecked);
         reloadChoiceStateInView(frontView, position);
     }
 
@@ -364,7 +364,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             }
             checked.set(i, false);
         }
-        swipeListView.onEndChoice();
+        swipeListView.onChoiceEnded();
         returnOldActions();
     }
 
@@ -655,7 +655,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                     boolean onFirstItemList = firstVisibleItem == 0;
                     if (onFirstItemList) {
                         isFirstItem = true;
-                        swipeListView.onFirstItemList();
+                        swipeListView.onFirstListItem();
                     }
                 }
                 if (isLastItem) {
@@ -667,7 +667,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                     boolean onLastItemList = firstVisibleItem + visibleItemCount >= totalItemCount;
                     if (onLastItemList) {
                         isLastItem = true;
-                        swipeListView.onLastItemList();
+                        swipeListView.onLastListItem();
                     }
                 }
             }
