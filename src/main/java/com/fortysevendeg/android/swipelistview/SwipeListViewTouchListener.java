@@ -21,6 +21,7 @@
 package com.fortysevendeg.android.swipelistview;
 
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.*;
@@ -344,7 +345,9 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             swipeListView.onEndChoice();
             returnOldActions();
         }
-        swipeListView.setItemChecked(position, !lastChecked);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            swipeListView.setItemChecked(position, !lastChecked);
+        }
         swipeListView.onChangeChoice(position, !lastChecked);
         reloadChoiceStateInView(frontView, position);
     }
@@ -483,7 +486,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
     }
 
     /**
-     * Create reveal animation
+     * Create choice animation
      *
      * @param view     affected view
      * @param position list position
