@@ -43,22 +43,22 @@ public class BaseSwipeListViewListener implements SwipeListViewListener {
     }
 
     @Override
-    public void onChangeChoice(int position, boolean selected) {
+    public void onChoiceChanged(int position, boolean selected) {
     }
 
     @Override
-    public void onStartChoice() {
+    public void onChoiceStarted() {
     }
 
     @Override
-    public void onEndChoice() {
+    public void onChoiceEnded() {
     }
 
     @Override
-    public void onFirstItemList() {
+    public void onFirstListItem() {
     }
 
     @Override
-    public void onLastItemList() {
+    public void onLastListItem() {
     }
 }

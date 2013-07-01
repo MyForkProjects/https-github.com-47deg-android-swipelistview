@@ -95,26 +95,26 @@ public interface SwipeListViewListener {
      * @param position position that choice
      * @param selected if item is selected or not
      */
-    void onChangeChoice(int position, boolean selected);
+    void onChoiceChanged(int position, boolean selected);
 
     /**
      * User start choice items
      */
-    void onStartChoice();
+    void onChoiceStarted();
 
     /**
      * User end choice items
      */
-    void onEndChoice();
+    void onChoiceEnded();
 
     /**
      * User is in first item of list
      */
-    void onFirstItemList();
+    void onFirstListItem();
 
     /**
      * User is in last item of list
      */
-    void onLastItemList();
+    void onLastListItem();
 
 }
