@@ -145,7 +145,7 @@ limitations under the License.
 [2]: https://github.com/47deg/android-swipelistview-sample
 [3]: http://developer.android.com/intl/es/tools/extras/support-library.html
 [4]: http://47deg.com
-[5]: https://oss.sonatype.org/content/groups/public/com/fortysevendeg/android/swipelistview/1.0/
+[5]: https://oss.sonatype.org/content/groups/public/com/fortysevendeg/android/swipelistview/1.0-SNAPSHOT/
 [6]: https://raw.github.com/47deg/android-swipelistview-sample/master/screenshot_swipelistview_small.png
 [7]: https://www.youtube.com/watch?v=E0352OH488M
 [8]: https://github.com/JakeWharton/NineOldAndroids/downloads
