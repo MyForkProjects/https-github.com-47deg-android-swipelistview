@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.fortysevendeg.android.swipelistview</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+      <groupId>com.fortysevendeg.swipelistview</groupId>
+      <artifactId>parent-samples</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>swipelistview-sample</artifactId>
-    <name>SwipeListView Sample</name>
+    <artifactId>sample-demo</artifactId>
+    <name>Sample: Demo Application</name>
     <packaging>apk</packaging>
 
     <dependencies>

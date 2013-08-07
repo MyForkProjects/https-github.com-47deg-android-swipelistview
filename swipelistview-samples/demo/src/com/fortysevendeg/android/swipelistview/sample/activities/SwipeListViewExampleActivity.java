@@ -37,8 +37,8 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.fortysevendeg.android.swipelistview.BaseSwipeListViewListener;
+import com.fortysevendeg.android.swipelistview.R;
 import com.fortysevendeg.android.swipelistview.SwipeListView;
-import com.fortysevendeg.android.swipelistview.sample.R;
 import com.fortysevendeg.android.swipelistview.sample.adapters.PackageAdapter;
 import com.fortysevendeg.android.swipelistview.sample.adapters.PackageItem;
 import com.fortysevendeg.android.swipelistview.sample.dialogs.AboutDialog;

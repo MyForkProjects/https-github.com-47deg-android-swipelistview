@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.fortysevendeg.android.swipelistview</groupId>
+        <groupId>com.fortysevendeg.swipelistview</groupId>
         <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>

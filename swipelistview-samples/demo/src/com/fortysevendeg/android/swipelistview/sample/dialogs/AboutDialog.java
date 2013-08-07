@@ -29,7 +29,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.CheckBox;
 
-import com.fortysevendeg.android.swipelistview.sample.R;
+import com.fortysevendeg.android.swipelistview.R;
 import com.fortysevendeg.android.swipelistview.sample.utils.PreferencesManager;
 
 public class AboutDialog extends DialogFragment {
