@@ -28,8 +28,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.fortysevendeg.android.swipelistview.R;
 import com.fortysevendeg.android.swipelistview.SwipeListView;
+import com.fortysevendeg.android.swipelistview.sample.R;
 
 import java.util.List;
 

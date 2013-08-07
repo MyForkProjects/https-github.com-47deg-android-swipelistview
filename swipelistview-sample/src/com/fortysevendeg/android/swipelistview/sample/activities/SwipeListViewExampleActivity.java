@@ -18,6 +18,7 @@
 
 package com.fortysevendeg.android.swipelistview.sample.activities;
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -34,9 +35,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
+
 import com.fortysevendeg.android.swipelistview.BaseSwipeListViewListener;
-import com.fortysevendeg.android.swipelistview.R;
 import com.fortysevendeg.android.swipelistview.SwipeListView;
+import com.fortysevendeg.android.swipelistview.sample.R;
 import com.fortysevendeg.android.swipelistview.sample.adapters.PackageAdapter;
 import com.fortysevendeg.android.swipelistview.sample.adapters.PackageItem;
 import com.fortysevendeg.android.swipelistview.sample.dialogs.AboutDialog;
@@ -57,6 +59,7 @@ public class SwipeListViewExampleActivity extends FragmentActivity {
 
     private ProgressDialog progressDialog;
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,9 @@ public class SwipeListViewExampleActivity extends FragmentActivity {
 
         swipeListView = (SwipeListView) findViewById(R.id.example_lv_list);
 
-        swipeListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        if (Build.VERSION.SDK_INT >= 11) {
+            swipeListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             swipeListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 

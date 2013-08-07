@@ -29,7 +29,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import com.fortysevendeg.android.swipelistview.R;
+import com.fortysevendeg.android.swipelistview.sample.R;
 import com.fortysevendeg.android.swipelistview.SwipeListView;
 import com.fortysevendeg.android.swipelistview.sample.utils.SettingsManager;
 
