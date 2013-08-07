@@ -67,13 +67,13 @@
         <gradle.version>1.0-SNAPSHOT</gradle.version>
 
         <java.version>1.6</java.version>
-        <android.platform>14</android.platform>
+        <android.platform>18</android.platform>
 
         <project.name.github>android-swipelistview</project.name.github>
         <scm.branch>master</scm.branch>
 
         <!-- Compilation dependencies -->
-        <android.version>4.0.1.2</android.version>
+        <android.version>4.1.1.4</android.version>
         <android-support.version>r7</android-support.version>
 
         <!-- Sample dependencies -->
@@ -119,7 +119,7 @@
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.6.1</version>
                     <configuration>
                         <nativeLibrariesDirectory>ignored</nativeLibrariesDirectory>
                         <sdk>
@@ -139,11 +139,6 @@
                     <configuration>
                         <failOnError>false</failOnError>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.holoeverywhere</groupId>
-                    <artifactId>resbuilder</artifactId>
-                    <version>1.5.0</version>
                 </plugin>
                 <plugin>
                     <groupId>com.google.code.maven-replacer-plugin</groupId>
