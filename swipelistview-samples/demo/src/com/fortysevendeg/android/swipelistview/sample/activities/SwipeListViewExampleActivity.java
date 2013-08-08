@@ -36,14 +36,14 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-import com.fortysevendeg.android.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.android.swipelistview.R;
-import com.fortysevendeg.android.swipelistview.SwipeListView;
-import com.fortysevendeg.android.swipelistview.sample.adapters.PackageAdapter;
 import com.fortysevendeg.android.swipelistview.sample.adapters.PackageItem;
 import com.fortysevendeg.android.swipelistview.sample.dialogs.AboutDialog;
 import com.fortysevendeg.android.swipelistview.sample.utils.PreferencesManager;
 import com.fortysevendeg.android.swipelistview.sample.utils.SettingsManager;
+import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
+import com.fortysevendeg.swipelistview.SwipeListView;
+import com.fortysevendeg.android.swipelistview.sample.adapters.PackageAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;

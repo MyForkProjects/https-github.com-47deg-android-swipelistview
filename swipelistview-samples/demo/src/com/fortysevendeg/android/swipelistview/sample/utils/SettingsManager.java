@@ -18,7 +18,7 @@
 
 package com.fortysevendeg.android.swipelistview.sample.utils;
 
-import com.fortysevendeg.android.swipelistview.SwipeListView;
+import com.fortysevendeg.swipelistview.SwipeListView;
 
 public class SettingsManager {
 

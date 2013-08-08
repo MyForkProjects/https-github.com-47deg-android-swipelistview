@@ -9,7 +9,7 @@ buildscript {
 }
 
 allprojects {
-  group = 'com.fortysevendeg.android.swipelistview'
+  group = 'com.fortysevendeg.swipelistview'
   version = '1.0-SNAPSHOT'
 
   repositories {

@@ -30,7 +30,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import com.fortysevendeg.android.swipelistview.R;
-import com.fortysevendeg.android.swipelistview.SwipeListView;
+import com.fortysevendeg.swipelistview.SwipeListView;
 
 import java.util.List;
 
