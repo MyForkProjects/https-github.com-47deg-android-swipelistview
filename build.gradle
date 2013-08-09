@@ -1,0 +1,22 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:0.5.+'
+  }
+}
+
+allprojects {
+  group = 'com.fortysevendeg.swipelistview'
+  version = '1.0-SNAPSHOT'
+
+  repositories {
+    mavenCentral()
+  }
+
+  tasks.withType(Compile) {
+    options.encoding = "UTF-8"
+  }
+}

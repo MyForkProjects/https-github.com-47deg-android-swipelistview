@@ -93,7 +93,7 @@ You can see a demo SwipeListView in action at [android-swipelistview-sample][2] 
 If you decide to use SwipeListView as a view, you can define it in your xml layout like this:
 
 ```xml
-    <com.fortysevendeg.android.swipelistview.SwipeListView
+    <com.fortysevendeg.swipelistview.SwipeListView
             xmlns:swipe="http://schemas.android.com/apk/res-auto"
             android:id="@+id/example_lv_list"
             android:listSelector="#00000000"
