@@ -27,7 +27,8 @@
             android:icon="@drawable/icon"
             android:label="@string/appName"
             android:theme="@style/Theme.SwipeListView"
-            android:hardwareAccelerated="true">
+            android:hardwareAccelerated="true"
+            android:allowBackup="false">
 
         <activity android:name=".sample.activities.SwipeListViewExampleActivity">
             <intent-filter>
