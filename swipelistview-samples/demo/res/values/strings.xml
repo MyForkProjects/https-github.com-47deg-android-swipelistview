@@ -44,7 +44,7 @@
 
     <string name="about">About</string>
     <string name="aboutMessage">This is just a simple demo for the Open Source SwipeListView Android Library by 47 Degrees. Find all source, documentation and packaged downloads at GitHub. Cheers!</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
 
     <string name="visit47">Visit 47deg</string>
     <string name="goToGitHub">Go to GitHub</string>

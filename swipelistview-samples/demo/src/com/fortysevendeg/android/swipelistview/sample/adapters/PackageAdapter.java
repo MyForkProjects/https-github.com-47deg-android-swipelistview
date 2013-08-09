@@ -18,6 +18,7 @@
 
 package com.fortysevendeg.android.swipelistview.sample.adapters;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -121,6 +122,7 @@ public class PackageAdapter extends BaseAdapter {
 
         holder.bAction3.setOnClickListener(new View.OnClickListener() {
             @Override
+            @TargetApi(14)
             public void onClick(View v) {
                 Uri packageUri = Uri.parse("package:" + item.getPackageName());
                 Intent uninstallIntent;
