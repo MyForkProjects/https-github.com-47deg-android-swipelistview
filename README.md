@@ -123,6 +123,12 @@ If you decide to use SwipeListView as a view, you can define it in your xml layo
 * `swipeOffsetLeft` - left offset
 * `swipeOffsetRight` - right offset
 
+# Continuous Integration
+
+CI and Artifact Repository hosted in ClinkerHQ.com 
+
+[![ClinkerHQ][10]][11]
+
 # License
 
 Copyright (C) 2012 47 Degrees, LLC
@@ -150,3 +156,6 @@ limitations under the License.
 [7]: https://www.youtube.com/watch?v=E0352OH488M
 [8]: https://github.com/JakeWharton/NineOldAndroids/downloads
 [9]: https://github.com/47deg/android-swipelistview/tree/master/res/values
+[10]: http://dl.clinkerhq.com/assets/badge/clinker-badge_125x125.png
+[11]: http://clinkerhq.com
+
