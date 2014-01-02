@@ -1,3 +1,5 @@
+[![Build Status][12]][13]
+
 SwipeListView ([Play Store Demo][1])
 =============
 
@@ -158,4 +160,5 @@ limitations under the License.
 [9]: https://github.com/47deg/android-swipelistview/tree/master/res/values
 [10]: http://dl.clinkerhq.com/assets/badge/clinker-badge_125x125.png
 [11]: http://clinkerhq.com
-
+[12]: https://clinker.47deg.com/desktop/plugin/public/status/android-swipelistview
+[13]: https://clinker.47deg.com/jenkins/view/Appsly/job/android-swipelistview/
