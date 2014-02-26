@@ -625,6 +625,7 @@ public class SwipeListView extends ListView {
                     checkInMoving(x, y);
                     return touchState == TOUCH_STATE_SCROLLING_Y;
                 case MotionEvent.ACTION_DOWN:
+                    super.onInterceptTouchEvent(ev);
                     touchListener.onTouch(this, ev);
                     touchState = TOUCH_STATE_REST;
                     lastMotionX = x;
