@@ -5,14 +5,10 @@ SwipeListView ([Play Store Demo][1])
 
 An Android List View implementation with support for drawable cells and many other swipe related features.
 
-We are actively seeking commiters and maintainers that want to contribute to this OS project. Please open an issue indicating you want to help out. Thanks!
+We are actively seeking help from People that want to contribute to this OS project. Please open an issue indicating you want to help out. Thanks!
 
 - [Introduction](#introduction)
 - [Download](#download)
-  - [Maven Dependency](#maven-dependency)
-	- [APKLib and others](#apklib-and-others)
-	- [Dependencies](#dependencies)
-- [Using the standalone SwipeListView JAR](#using-the-standalone-swipelistview-jar)
 - [Demo](#demo)
 - [XML Usage](#xml-usage)
 - [License](#license)
@@ -28,68 +24,25 @@ SwipeListView was born out of the need to add swipe gestures to ListView on Andr
 
 # Download
 
-## Maven Dependency
+*Gradle*
 
-SwipeListView may be automatically imported into your project if you already use [Maven](http://maven.apache.org/). 
-Just declare android-swipelistview as a maven dependency.
-If you wish to always use the latest unstable snapshots, add the Sonatype repository where the SwipeListView 
-snapshot artifacts are being deployed.
-SwipeListView official releases will be made available at Maven Central.
+```groovy
 
-```xml
-<repository>
-    <id>sonatype</id>
-    <url>https://oss.sonatype.org/content/groups/public/</url>
-    <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>fail</checksumPolicy>
-    </releases>
-    <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-        <checksumPolicy>ignore</checksumPolicy>
-    </snapshots>
-</repository>
+repositories {
+        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
+}
 
-<dependency>
-    <groupId>com.fortysevendeg.android</groupId>
-    <artifactId>swipelistview</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <type>apklib</type>
-</dependency>
+dependencies {
+    compile ('com.fortysevendeg.android:swipelistview:1.0-SNAPSHOT@aar') {
+        transitive = true
+    }
+}
+
 ```
-## APKLib and others
-
-You can get the releases, snapshots and other forms in which SwipeListView is distributed from the Maven sonatype Repository here
-[Downloads][5].
-
-## Dependencies
-
-SwipeListView depends on the following libraries.
-
-- com.nineoldandroids 
-
-SwipeListView expects that you include one of the Google Android [compatibility libraries][3] in order to use Loaders in versions that do not support them natively.
-Depending on your requirements you may choose to include one of the following...
-
-- com.google.android :
-    - support-v4 (Available in Maven Central)
-
-# Using the standalone SwipeListView JAR
-
-If you manually include the single SwipeListView jar [swipelistview-1.0-SNAPSHOT.jar][5] in your libs/ folder you would also have to add the following dependencies:
-
-- [nineoldandroids-2.4.0.jar][8]
-- android-support-v4
-
-You'd have to provide also the [attrs.xml][9] inside your directory "res/values" so the attributes are properly picked up by the runtime.
-
-We do discourage people from manually adding the jars and recomend following the maven or apklib aproach to include SwipeListView library in your own project.
 
 # Demo
 
-You can see a demo SwipeListView in action at [android-swipelistview-sample][2] or install it from [Google Play][1]
+You can see a demo SwipeListView in action on Google Play [Google Play][1]
 
 
 # XML Usage

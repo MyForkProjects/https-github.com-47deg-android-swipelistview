@@ -21,7 +21,9 @@
   package="com.fortysevendeg.swipelistview" android:versionCode="1" android:versionName="1.0">
 
   <uses-sdk android:minSdkVersion="7"
-            android:targetSdkVersion="18" />
+            android:targetSdkVersion="19" />
+
+    <application />
 
 </manifest>
 

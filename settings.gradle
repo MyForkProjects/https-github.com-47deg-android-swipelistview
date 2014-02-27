@@ -1,1 +1,1 @@
-include ':swipelistview', ':swipelistview-samples:demo'
+include ':swipelistview'

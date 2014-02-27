@@ -1,22 +1,92 @@
 buildscript {
-  repositories {
-    mavenCentral()
-  }
 
-  dependencies {
-    classpath 'com.android.tools.build:gradle:0.5.+'
-  }
+    group = GROUP
+    version = VERSION_NAME
+
+    repositories {
+        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
+        maven { url "${System.env.HOME}/.m2/repository" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.github.dcendents:android-maven-plugin:1.0'
+    }
 }
 
-allprojects {
-  group = 'com.fortysevendeg.swipelistview'
-  version = '1.0-SNAPSHOT'
+subprojects {
 
-  repositories {
-    mavenCentral()
-  }
+    group = GROUP
+    version = VERSION_NAME
 
-  tasks.withType(Compile) {
-    options.encoding = "UTF-8"
-  }
+    apply plugin: 'android-library'
+    apply plugin: 'android-maven'
+
+
+    android {
+        compileSdkVersion 19
+        buildToolsVersion '19.0.0'
+
+        defaultConfig {
+            targetSdkVersion 19
+        }
+
+        lintOptions {
+            abortOnError false
+        }
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_6
+    targetCompatibility = JavaVersion.VERSION_1_6
+
+    repositories {
+        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
+        maven { url 'https://clinker.47deg.com/nexus/content/repositories/releases' }
+        maven { url "${System.env.HOME}/.m2/repository" }
+    }
+
+    dependencies {
+        compile 'com.android.support:appcompat-v7:19.0.+'
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: 'http://clinker.47deg.com/nexus/content/repositories/snapshots/') {
+                    authentication(userName: mavenDeployer, password: mavenDeployerPassword)
+                }
+
+                pom.project {
+                    packaging POM_PACKAGING
+                    description POM_DESCRIPTION
+                    url POM_URL
+
+                    scm {
+                        url POM_SCM_URL
+                        connection POM_SCM_CONNECTION
+                        developerConnection POM_SCM_DEV_CONNECTION
+                    }
+
+                    licenses {
+                        license {
+                            name POM_LICENCE_NAME
+                            url POM_LICENCE_URL
+                            distribution POM_LICENCE_DIST
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id POM_DEVELOPER_ID
+                            name POM_DEVELOPER_NAME
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }
+
+
+
