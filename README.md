@@ -5,6 +5,8 @@ SwipeListView ([Play Store Demo][1])
 
 An Android List View implementation with support for drawable cells and many other swipe related features.
 
+We are actively seeking commiters and maintainers that want to contribute to this OS project. Please open an issue indicating you want to help out. Thanks!
+
 - [Introduction](#introduction)
 - [Download](#download)
   - [Maven Dependency](#maven-dependency)
