@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    compile ('com.fortysevendeg.android:swipelistview:1.0-SNAPSHOT@aar') {
+    compile ('com.fortysevendeg.swipelistview:swipelistview:1.0-SNAPSHOT@aar') {
         transitive = true
     }
 }
