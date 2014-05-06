@@ -228,6 +228,7 @@ public class SwipeListView extends ListView {
      */
     public void recycle(View convertView, int position) {
         touchListener.reloadChoiceStateInView(convertView.findViewById(swipeFrontView), position);
+        touchListener.reloadSwipeStateInView(convertView.findViewById(swipeFrontView));
     }
 
     /**

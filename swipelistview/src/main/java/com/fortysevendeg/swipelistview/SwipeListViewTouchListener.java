@@ -401,6 +401,18 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
     }
 
     /**
+     * Reset the state of front view when the it's recycled by ListView
+     *
+     * @param frontView view to re-draw
+     * 
+     */
+    protected void reloadSwipeStateInView(View frontView) {
+    	 if(this.swipeClosesAllItemsWhenListMoves){
+    		 frontView.setTranslationX(0f);
+         }
+    }
+
+    /**
      * Get if item is selected
      *
      * @param position position in list
