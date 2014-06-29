@@ -25,7 +25,11 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
-import android.view.*;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
@@ -370,9 +374,13 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
     }
 
     /**
-     * Unselected choice state in item
+     * Dismiss an item.
+     * @param position is the position of the item to delete.
+     * @return 0 if the item is not visible. Otherwise return the height of the cell to dismiss.
      */
     protected int dismiss(int position) {
+        opened.remove(position);
+        checked.remove(position);
         int start = swipeListView.getFirstVisiblePosition();
         int end = swipeListView.getLastVisiblePosition();
         View view = swipeListView.getChildAt(position - start);
@@ -404,12 +412,19 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      * Reset the state of front view when the it's recycled by ListView
      *
      * @param frontView view to re-draw
-     * 
      */
-    protected void reloadSwipeStateInView(View frontView) {
-    	 if(this.swipeClosesAllItemsWhenListMoves){
-    		 frontView.setTranslationX(0f);
-         }
+    protected void reloadSwipeStateInView(View frontView, int position) {
+        if (!opened.get(position)) {
+            frontView.setTranslationX();
+            setTranslationX(frontView, 0.0f);
+        } else {
+            if (openedRight.get(position)) {
+                setTranslationX(frontView, swipeListView.getWidth());
+            } else {
+                setTranslationX(frontView, -swipeListView.getWidth());
+            }
+        }
+
     }
 
     /**
@@ -802,6 +817,8 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                     swap = true;
                     swapRight = deltaX > 0;
                 }
+
+
                 generateAnimate(frontView, swap, swapRight, downPosition);
                 if (swipeCurrentAction == SwipeListView.SWIPE_ACTION_CHOICE) {
                     swapChoiceState(downPosition);
@@ -990,6 +1007,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      * @param dismissPosition Position of list
      */
     protected void performDismiss(final View dismissView, final int dismissPosition, boolean doPendingDismiss) {
+        enableDisableViewGroup((ViewGroup) dismissView, false);
         final ViewGroup.LayoutParams lp = dismissView.getLayoutParams();
         final int originalHeight = dismissView.getHeight();
 
@@ -1007,6 +1025,13 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             });
         }
 
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                enableDisableViewGroup((ViewGroup) dismissView, true);
+            }
+        });
+
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -1019,10 +1044,17 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
         animator.start();
     }
 
+    /**
+     * Remove all pending dismisses.
+     */
     protected void resetPendingDismisses() {
         pendingDismisses.clear();
     }
 
+    /**
+     * Will call {@link #removePendingDismisses(int)} in animationTime + 100 ms.
+     * @param originalHeight will be used to rest the cells height.
+     */
     protected void handlerPendingDismisses(final int originalHeight) {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -1033,6 +1065,12 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
         }, animationTime + 100);
     }
 
+    /**
+     * Will delete all pending dismisses.
+     * Will call callback onDismiss for all pending dismisses.
+     * Will reset all cell height to originalHeight.
+     * @param originalHeight is the height of the cell before animation.
+     */
     private void removePendingDismisses(int originalHeight) {
         // No active animations, process all pending dismisses.
         // Sort by descending position
@@ -1058,6 +1096,17 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
         resetPendingDismisses();
 
+    }
+
+    public static void enableDisableViewGroup(ViewGroup viewGroup, boolean enabled) {
+        int childCount = viewGroup.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View view = viewGroup.getChildAt(i);
+            view.setEnabled(enabled);
+            if (view instanceof ViewGroup) {
+                enableDisableViewGroup((ViewGroup) view, enabled);
+            }
+        }
     }
 
 }

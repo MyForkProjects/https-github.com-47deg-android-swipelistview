@@ -27,6 +27,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -239,7 +240,15 @@ public class SwipeListView extends ListView {
      */
     public void recycle(View convertView, int position) {
         touchListener.reloadChoiceStateInView(convertView.findViewById(swipeFrontView), position);
-        touchListener.reloadSwipeStateInView(convertView.findViewById(swipeFrontView));
+        touchListener.reloadSwipeStateInView(convertView.findViewById(swipeFrontView), position);
+
+        // Clean pressed state (if dismiss is fire from a cell, to this cell, with a press drawable, in a swipelistview
+        // when this cell will be recycle it will still have his pressed state. This ensure the pressed state is
+        // cleaned.
+        for(int j=0; j<((ViewGroup)convertView).getChildCount(); ++j) {
+            View nextChild = ((ViewGroup)convertView).getChildAt(j);
+            nextChild.setPressed(false);
+        }
     }
 
     /**
@@ -285,6 +294,7 @@ public class SwipeListView extends ListView {
         super.setAdapter(adapter);
         touchListener.resetItems();
         adapter.registerDataSetObserver(new DataSetObserver() {
+
             @Override
             public void onChanged() {
                 super.onChanged();
