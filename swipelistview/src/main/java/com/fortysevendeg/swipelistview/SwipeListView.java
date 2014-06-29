@@ -36,6 +36,16 @@ import java.util.List;
  * ListView subclass that provides the swipe functionality
  */
 public class SwipeListView extends ListView {
+    
+    /**
+     * log tag
+    */
+    public final static String TAG = "SwipeListView";
+	
+    /**
+    * whether debug
+    */
+    public final static boolean DEBUG = false;
 
     /**
      * Used when user want change swipe list mode on some rows
