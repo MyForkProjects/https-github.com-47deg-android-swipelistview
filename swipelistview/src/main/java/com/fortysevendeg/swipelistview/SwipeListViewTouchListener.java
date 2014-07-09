@@ -149,8 +149,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
             frontView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    if(downPosition >= 0)
-                    {
+                    if(downPosition >= 0){
                         openAnimate(downPosition);
                     }
                     return false;
