@@ -415,7 +415,6 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      */
     protected void reloadSwipeStateInView(View frontView, int position) {
         if (!opened.get(position)) {
-            frontView.setTranslationX();
             setTranslationX(frontView, 0.0f);
         } else {
             if (openedRight.get(position)) {
