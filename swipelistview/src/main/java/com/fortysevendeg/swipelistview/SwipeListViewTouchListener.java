@@ -145,18 +145,22 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                 swipeListView.onClickFrontView(downPosition);
             }
         });
-        if (swipeOpenOnLongPress) {
-            frontView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    if(downPosition >= 0){
+
+        frontView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (swipeOpenOnLongPress) {
+                    if (downPosition >= 0) {
                         openAnimate(childPosition);
                     }
-                    return false;
+                } else {
+                    swapChoiceState(childPosition);
                 }
-            });
-        }
-    }
+                return false;
+            }
+
+        });
+}
 
     /**
      * Set current item's back view
