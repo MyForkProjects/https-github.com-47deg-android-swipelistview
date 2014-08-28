@@ -137,7 +137,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      *
      * @param frontView Front view
      */
-    private void setFrontView(View frontView) {
+    private void setFrontView(View frontView, final int childPosition) {
         this.frontView = frontView;
         frontView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,7 +150,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                 @Override
                 public boolean onLongClick(View v) {
                     if(downPosition >= 0){
-                        openAnimate(downPosition);
+                        openAnimate(childPosition);
                     }
                     return false;
                 }
@@ -768,7 +768,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
                     if (allowSwipe && rect.contains(x, y)) {
                         setParentView(child);
-                        setFrontView(child.findViewById(swipeFrontView));
+                        setFrontView(child.findViewById(swipeFrontView), childPosition);
 
                         downX = motionEvent.getRawX();
                         downPosition = childPosition - swipeListView.getHeaderViewsCount();
