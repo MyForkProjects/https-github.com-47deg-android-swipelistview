@@ -25,14 +25,14 @@ public interface SwipeListViewListener {
 
     /**
      * Called when open animation finishes
-     * @param position list item
+     * @param position of the view in the list
      * @param toRight Open to right
      */
     void onOpened(int position, boolean toRight);
 
     /**
      * Called when close animation finishes
-     * @param position list item
+     * @param position of the view in the list
      * @param fromRight Close from right
      */
     void onClosed(int position, boolean fromRight);
@@ -44,14 +44,14 @@ public interface SwipeListViewListener {
 
     /**
      * Called when user is moving an item
-     * @param position list item
+     * @param position of the view in the list
      * @param x Current position X
      */
     void onMove(int position, float x);
 
     /**
      * Start open item
-     * @param position list item
+     * @param position of the view in the list
      * @param action current action
      * @param right to right
      */
@@ -59,20 +59,20 @@ public interface SwipeListViewListener {
 
     /**
      * Start close item
-     * @param position list item
+     * @param position of the view in the list
      * @param right
      */
     void onStartClose(int position, boolean right);
 
     /**
      * Called when user clicks on the front view
-     * @param position list item
+     * @param position of the view in the list
      */
     void onClickFrontView(int position);
 
     /**
      * Called when user clicks on the back view
-     * @param position list item
+     * @param position of the view in the list
      */
     void onClickBackView(int position);
 
@@ -92,7 +92,7 @@ public interface SwipeListViewListener {
 
     /**
      * Called when user choice item
-     * @param position position that choice
+     * @param position of the view in the list that choice
      * @param selected if item is selected or not
      */
     void onChoiceChanged(int position, boolean selected);
