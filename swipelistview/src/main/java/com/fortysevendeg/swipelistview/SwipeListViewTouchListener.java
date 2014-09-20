@@ -137,7 +137,7 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      *
      * @param frontView Front view
      */
-    private void setFrontView(View frontView) {
+    private void setFrontView(View frontView, final int childPosition) {
         this.frontView = frontView;
         frontView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,18 +145,22 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
                 swipeListView.onClickFrontView(downPosition);
             }
         });
-        if (swipeOpenOnLongPress) {
-            frontView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    if(downPosition >= 0){
-                        openAnimate(downPosition);
+
+        frontView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (swipeOpenOnLongPress) {
+                    if (downPosition >= 0) {
+                        openAnimate(childPosition);
                     }
-                    return false;
+                } else {
+                    swapChoiceState(childPosition);
                 }
-            });
-        }
-    }
+                return false;
+            }
+
+        });
+}
 
     /**
      * Set current item's back view
@@ -334,10 +338,16 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
      * @param position Position of list
      */
     protected void closeAnimate(int position) {
-        final View child = swipeListView.getChildAt(position - swipeListView.getFirstVisiblePosition()).findViewById(swipeFrontView);
+        if (swipeListView != null) {
+            int firstVisibleChildPosition = swipeListView.getFirstVisiblePosition();
+            final View childContainer = swipeListView.getChildAt(position - firstVisibleChildPosition);
+            if (childContainer != null) {
+                final View child = childContainer.findViewById(swipeFrontView);
 
-        if (child != null) {
-            closeAnimate(child, position);
+                if (child != null) {
+                    closeAnimate(child, position);
+                }
+            }
         }
     }
 
@@ -768,10 +778,10 @@ public class SwipeListViewTouchListener implements View.OnTouchListener {
 
                     if (allowSwipe && rect.contains(x, y)) {
                         setParentView(child);
-                        setFrontView(child.findViewById(swipeFrontView));
+                        setFrontView(child.findViewById(swipeFrontView), childPosition);
 
                         downX = motionEvent.getRawX();
-                        downPosition = childPosition - swipeListView.getHeaderViewsCount();
+                        downPosition = childPosition;
 
                         frontView.setClickable(!opened.get(downPosition));
                         frontView.setLongClickable(!opened.get(downPosition));
